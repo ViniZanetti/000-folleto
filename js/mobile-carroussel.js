@@ -64,6 +64,7 @@ const loadGame = () => {
        const cardImgs = creatCardM(imgs)
        paiCardM.appendChild(cardImgs)
     });
+    
 }
 
 
