@@ -125,14 +125,14 @@ let timeoutIDs = []; // Armazena os IDs de timeout para cancelar quando o menu Ã
 
 mobileMenu.addEventListener('click', () => {
     if (!menuAberto) {
-        // Abre o menu
+        // Abre o menu          
         if (!elementosAdicionados) {
             elementosAdicionados = true;
             fotosNav.forEach((imgs, index) => {
                 const timeoutID = setTimeout(() => {
                     const linhaImgsLinks = creatCardNav(imgs, index);
                     paiCardNav.appendChild(linhaImgsLinks);
-                }, 500 * (index + 1))
+                }, 200 * (index + 0.9))
                 timeoutIDs.push(timeoutID);
             });
         }
@@ -150,7 +150,7 @@ mobileMenu.addEventListener('click', () => {
             elementosNav.forEach(elemento => {
                 paiCardNav.removeChild(elemento);
             });
-        }, 500);
+        }, 300);
     }
 
     menuAberto = !menuAberto; // Alterna o estado do menu
