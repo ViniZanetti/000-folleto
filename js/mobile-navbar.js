@@ -122,12 +122,16 @@ const creatCardNav = (imgs, index) => {
 let menuAberto = false; // Inicialmente, o menu está fechado
 let elementosAdicionados = false; // Inicialmente, nenhum elemento foi adicionado
 let timeoutIDs = []; // Armazena os IDs de timeout para cancelar quando o menu é fechado
+let paiListMobile = document.querySelector(".pai-list-mobile")
 
 mobileMenu.addEventListener('click', () => {
     if (!menuAberto) {
         // Abre o menu          
         if (!elementosAdicionados) {
             elementosAdicionados = true;
+            
+            paiListMobile.style.display = "flex";
+
             fotosNav.forEach((imgs, index) => {
                 const timeoutID = setTimeout(() => {
                     const linhaImgsLinks = creatCardNav(imgs, index);
@@ -139,6 +143,7 @@ mobileMenu.addEventListener('click', () => {
     } else {
         // Fecha o menu removendo os elementos e interrompendo os timeouts
         elementosAdicionados = false;
+        paiListMobile.style.display = "none";
         timeoutIDs.forEach(timeoutID => {
             clearTimeout(timeoutID); // Cancela os timeouts agendados
         });
